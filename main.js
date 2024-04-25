@@ -17,49 +17,43 @@ function getCantidadDeCuotas(){
 }
 
 function isCuotasCorrect(cuotas){
-
-  return typeof cuotas == "number" && (cantidadDeCuotas % 2 == 0 && cantidadDeCuotas <= 12) && typeof cuotas != "undefined";
+  return !isNaN(cuotas) && (cuotas % 2 == 0) && (cuotas <= 12);
 }
 
 function isMontoNumber(monto){
-  return typeof monto == "number" && typeof monto != "undefined";
+  return !isNaN(monto); 
 }
 
 
 let monto = parseInt(getMonto());
 let montoCorrect = isMontoNumber(monto);
 
-  while(!montoCorrect){
+while(!montoCorrect){
       console.log("El monto debe ser un numero");
       monto = parseInt(getMonto());
       montoCorrect = isMontoNumber(monto);
-  }
+}
 
 
   let cantidadDeCuotas = parseInt(getCantidadDeCuotas());
-  let cuotasCorrect = isCuotasCorrect(cuotas);
+  let cuotasCorrect = isCuotasCorrect(cantidadDeCuotas);
 
-  while(!cuotasCorrect){
+while(!cuotasCorrect){
     console.log("La cantidad de cuotas debe ser un numero par y menor a 13");
     cantidadDeCuotas = parseInt(getCantidadDeCuotas());
     cuotasCorrect = isCuotasCorrect(cantidadDeCuotas);
-  } 
+} 
 
-    valorTotal = monto + calcularInteres(monto, tasaInteres);
+  valorTotal = monto + calcularInteres(monto, tasaInteres);
 
-    precioPorCuotas = valorTotal / cantidadDeCuotas;
+  precioPorCuotas = valorTotal / cantidadDeCuotas;
 
-    console.log("El total a pagar es " + valorTotal);
+  console.log("El total a pagar es " + valorTotal);
 
-    console.log("El interes total es " + calcularInteres(monto, tasaInteres));
+  console.log("El interes total es " + calcularInteres(monto, tasaInteres));
 
-    console.log("Y el precio por cuota es: " + precioPorCuotas);
+  console.log("Y el precio por cuota es: " + precioPorCuotas);
 
-    cortaciclos = false;
+  cortaciclos = false;
 
-    console.log("Operación completada con exito");
-
-
-
-
-
+  console.log("Operación completada con exito");
