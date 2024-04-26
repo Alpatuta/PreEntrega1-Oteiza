@@ -1,59 +1,97 @@
-//Variables
-let tasaInteres = 36;
+class Compra {
+  tasaInteres;
+  montoTotal;
+  cantidadDeCuotas;
 
-//Variable para cortar el bucle while
-let cortaciclos = true;
+  constructor(tasa, monto, cuotas) {
+    this.tasaInteres = tasa;
+    this.montoTotal = monto;
+    this.cantidadDeCuotas = cuotas;
+  }
 
-//Funcion que calcula el interes total
-function calcularInteres(monto, tasaInteres) {
-    return monto * (tasaInteres / 100);
+  toString() { // paso a string los parametros
+    return `Monto Total: ${this.montoTotal}, Tasa de Interés: ${this.tasaInteres}%, Cantidad de Cuotas: ${this.cantidadDeCuotas}`;
+  }
 }
 
-function getMonto(){
+const compras = []; //lista de objetos tipo compra
+
+let salir = false;
+
+while (!salir) {
+  let monto = parseInt(getMonto());
+  while (!isMontoNumber(monto)) {
+    console.log("El monto debe ser un número");
+    monto = parseInt(getMonto());
+  }
+
+  let cantidadDeCuotas = parseInt(getCantidadDeCuotas());
+  while (!isCuotasCorrect(cantidadDeCuotas)) {
+    console.log("La cantidad de cuotas debe ser un número par y menor a 13");
+    cantidadDeCuotas = parseInt(getCantidadDeCuotas());
+  }
+
+  let tasaInteres = parseFloat(getTasaInteres());
+  while (!isTasaCorrect(tasaInteres)) {
+    console.log("La tasa de interés debe ser un número positivo");
+    tasaInteres = parseFloat(getTasaInteres());
+  }
+
+  let interesTotal = calcularInteres(monto, tasaInteres);
+  let valorTotal = monto + interesTotal;
+  let precioPorCuota = valorTotal / cantidadDeCuotas;
+
+  console.log("El total a pagar es " + valorTotal);
+  console.log("El interes total es " + interesTotal);
+  console.log("Y el precio por cuota es: " + precioPorCuota);
+
+  
+  compras.push(new Compra(tasaInteres, monto, cantidadDeCuotas));
+
+  console.log("se registro la compra");
+
+  let decision = prompt("¿Desea imprimir todas las compras? Responda con 'si' o con 'no'");
+if (decision === "si") {
+    for (let i = 0; i < compras.length; i++) {
+        console.log(compras[i].toString());
+    }
+}
+
+
+  let saleUsuario = prompt("¿Desea salir? Responda con 'si' o con 'no'");
+  if (saleUsuario == "si") {
+    salir = true;
+  } else if (saleUsuario == "no") {
+    salir = false;
+  } else {
+    alert("Respuesta no valida, responda con 'si' o con 'no'.");
+  }
+}
+
+function calcularInteres(monto, tasaInteres) {
+  return monto * (tasaInteres / 100);
+}
+
+function getMonto() {
   return prompt("Ingrese el monto total a pagar:");
 }
-function getCantidadDeCuotas(){
+
+function getCantidadDeCuotas() {
   return prompt("Ingrese la cantidad de cuotas que desee: \n2 Cuotas \n4 cuotas \n6 Cuotas \n8 Cuotas \n10 Cuotas \n12 Cuotas");
 }
 
-function isCuotasCorrect(cuotas){
-  return !isNaN(cuotas) && (cuotas % 2 == 0) && (cuotas <= 12);
+function getTasaInteres() {
+  return prompt("Ingrese la tasa de interés (%):");
 }
 
-function isMontoNumber(monto){
-  return !isNaN(monto); 
+function isCuotasCorrect(cuotas) {
+  return !isNaN(cuotas) && cuotas % 2 === 0 && cuotas <= 12;
 }
 
-
-let monto = parseInt(getMonto());
-let montoCorrect = isMontoNumber(monto);
-
-while(!montoCorrect){
-      console.log("El monto debe ser un numero");
-      monto = parseInt(getMonto());
-      montoCorrect = isMontoNumber(monto);
+function isMontoNumber(monto) {
+  return !isNaN(monto);
 }
 
-
-  let cantidadDeCuotas = parseInt(getCantidadDeCuotas());
-  let cuotasCorrect = isCuotasCorrect(cantidadDeCuotas);
-
-while(!cuotasCorrect){
-    console.log("La cantidad de cuotas debe ser un numero par y menor a 13");
-    cantidadDeCuotas = parseInt(getCantidadDeCuotas());
-    cuotasCorrect = isCuotasCorrect(cantidadDeCuotas);
-} 
-
-  valorTotal = monto + calcularInteres(monto, tasaInteres);
-
-  precioPorCuotas = valorTotal / cantidadDeCuotas;
-
-  console.log("El total a pagar es " + valorTotal);
-
-  console.log("El interes total es " + calcularInteres(monto, tasaInteres));
-
-  console.log("Y el precio por cuota es: " + precioPorCuotas);
-
-  cortaciclos = false;
-
-  console.log("Operación completada con exito");
+function isTasaCorrect(tasa) {
+  return !isNaN(tasa) && tasa > 0;
+}
