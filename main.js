@@ -1,3 +1,32 @@
+//Funciones
+function calcularInteres(monto, tasaInteres) {
+  return monto * (tasaInteres / 100);
+}
+
+function getMonto() {
+  return prompt("Ingrese el monto total a pagar:");
+}
+
+function getCantidadDeCuotas() {
+  return prompt("Ingrese la cantidad de cuotas que desee: \n2 Cuotas \n4 cuotas \n6 Cuotas \n8 Cuotas \n10 Cuotas \n12 Cuotas");
+}
+
+function getTasaInteres() {
+  return prompt("Ingrese la tasa de interés (%):");
+}
+
+function isCuotasCorrect(cuotas) {
+  return !isNaN(cuotas) && cuotas % 2 === 0 && cuotas <= 12;
+}
+
+function isMontoNumber(monto) {
+  return !isNaN(monto);
+}
+
+function isTasaCorrect(tasa) {
+  return !isNaN(tasa) && tasa > 0;
+}
+
 class Compra {
   tasaInteres;
   montoTotal;
@@ -68,30 +97,3 @@ if (decision === "si") {
   }
 }
 
-function calcularInteres(monto, tasaInteres) {
-  return monto * (tasaInteres / 100);
-}
-
-function getMonto() {
-  return prompt("Ingrese el monto total a pagar:");
-}
-
-function getCantidadDeCuotas() {
-  return prompt("Ingrese la cantidad de cuotas que desee: \n2 Cuotas \n4 cuotas \n6 Cuotas \n8 Cuotas \n10 Cuotas \n12 Cuotas");
-}
-
-function getTasaInteres() {
-  return prompt("Ingrese la tasa de interés (%):");
-}
-
-function isCuotasCorrect(cuotas) {
-  return !isNaN(cuotas) && cuotas % 2 === 0 && cuotas <= 12;
-}
-
-function isMontoNumber(monto) {
-  return !isNaN(monto);
-}
-
-function isTasaCorrect(tasa) {
-  return !isNaN(tasa) && tasa > 0;
-}
