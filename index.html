@@ -3,16 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PreEntrega1-Oteiza</title>
+    <title>PrestaInversiones</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
 </head>
 <body>
     
-    <h1>Primera PreEntrega.</h1>
+    
+    <nav>
+        <div class="nav-logo">
+            <a href="#">
+                <i class="ri-shake-hands-line"></i>
+            </a>
+        </div>
+        <h1 class="main-titulo">PrestaInversiones.</h1>
+        
+        <ul class="nav-links">
+            <li class="link"><a href="#prestamos">Pide un prestamo</a></li>
+            <li class="link"><a href="#prestamos">Calcula tus cuotas</a></li>
+            <li class="link"><a href="#prestamos">Administra tu presupuesto</a></li>
+        </ul>
+    </nav>
+
+    <header class="container">
+        <div class="content">
+            <h4>Invierte e impulsa tu futuro</h4>
+            <H1>Bienvenido a <span>PrestaInversiones.</span></H1>
+            <p>Tu socio financiero de confianza. En un mundo donde las oportunidades no esperan, te ofrecemos la solución que necesitas para alcanzar tus metas. Con transparencia, rapidez y flexibilidad, estamos aquí para ayudarte a obtener el préstamo que necesitas para hacer realidad tus proyectos.</p>
+        </div>
+        <div class="image">
+            <img src="imges/finance-app-1-67.svg">
+        </div>
+    </header>
+
+    <section class="container-2">
+        <h2 class="header">NUESTRAS OPCIONES</h2>
+        <div  id="prestamos">
+            <div class="beneficios">
+                <span><i class="ri-bank-line"></i></span>
+                <h4>Pide un prestamo</h4>
+                <p>¿Tienes un proyecto en mente pero necesitas un impulso financiero? ¡No esperes más! Con nuestro servicio de préstamos, puedes convertir tus sueños en realidad hoy mismo. Obtén el dinero que necesitas de forma rápida y sencilla, sin complicaciones. Ya sea para iniciar un negocio, realizar mejoras en tu hogar o cubrir gastos inesperados, estamos aquí para ayudarte. ¡Haz realidad tus planes con nuestro préstamo a tu alcance!</p>
+                <div class="ingrese-datos">
+                    <label for="monto_total">Monto total:</label>
+                    <input class = "barras" type="number" id="monto_total" name="monto_total">
+                
+                    <label for="cuotas_totales">Cuotas totales:</label>
+                    <input class = "barras" type="number" id="cuotas_totales" name="cuotas_totales">
+                    <p class="texto-prestamo">El prestamo tiene un interes TOTAL del 25%.</p>
+                    <button class="btn">Enviar</button>
+                </div>
+            </div>
+            <div class="beneficios">
+                <span><i class="ri-money-dollar-box-line"></i></span>
+                <h4>Calcula tus cuotas</h4>
+                <p>¿Quieres administrar tus finanzas de manera inteligente? ¡Calcula tus cuotas con nosotros! Con nuestra herramienta de cálculo de cuotas, podrás planificar tus pagos de manera precisa y eficiente. Controla tus gastos, evita sorpresas y mantén tu presupuesto bajo control. ¡Haz que tus metas financieras sean una realidad con un cálculo de cuotas fácil y rápido!</p>
+                <div class="ingrese-datos">
+                    <label for="monto_total">Monto total:</label>
+                    <input class = "barras" type="number" id="monto_total" name="monto_total">
+                
+                    <label for="cuotas_totales">Cuotas totales:</label>
+                    <input class = "barras" type="number" id="cuotas_totales" name="cuotas_totales">
+
+                    <label for="interes">Interes (en %):</label>
+                    <input class = "barras" type="number" id="interes" name="interes">
+                  
+                    <button class="btn">Enviar</button>
+                </div>
+            </div>
+            <div class="beneficios">
+                <span><i class="ri-bit-coin-fill"></i></span>
+                <h4>Administra tu presupuesto</h4>
+                <p>La Administración de presupuestos es clave para mantener el control financiero. Con un enfoque proactivo en la gestión de ingresos y gastos, puedes alcanzar tus metas financieras y garantizar la estabilidad económica. A través de un seguimiento cuidadoso y la asignación eficiente de recursos, la Administración de presupuestos te ayuda a tomar decisiones informadas y a evitar sorpresas desagradables. ¡Empodérate financiera mente y construye un futuro sólido con una gestión presupuestaria efectiva!</p>
+                <div class="ingrese-datos">
+                    <label for="monto_total">Ingrese el presupuesto:</label>
+                    <input class = "barras" type="number" id="monto_total" name="monto_total">
+                
+                    <label for="cuotas_totales">Tiempo de gestion del presupuesto (en meses):</label>
+                    <input class = "barras" type="number" id="cuotas_totales" name="cuotas_totales">
+
+                    <button class="btn">Enviar</button>
+                </div>
+            </div>
+        </div>
 
 
+       
 
 
+    </section>
+    
+    <footer class="container">
+        <div class="column">
+            <div class="logo">
+                <i class="ri-shake-hands-line"></i>
+            </div>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis, vel dolore.</p>
+            <div class="socials">
+                <a href="#"><i class="ri-mail-line"></i></a>
+                <a href="#"><i class="ri-twitter-x-line"></i></a>
+                <a href="#"><i class="ri-linkedin-box-fill"></i></a>
+            </div>
+        </div>
+        <div class="column">
+            <h4>Contacto</h4>
+            <a href="#">Escribenos</a>
+            <a href="#">Reclamos</a>
+        </div>
+        <div class="column">
+            <h4>Institucional</h4>
+            <a href="#">Trabaja con nosotros</a>
+            <a href="#">Acera de PrestaInversiones</a>
+            <a href="#">Derechos</a>
+        </div>
+        <div class="column">
+            <h4>Legales</h4>
+            <a href="#">Terminos y condiciones</a>
+            <a href="#">Politica de privacidad</a>
+        </div>
+    </footer>
 
-    <script src="main.js"></script>
+    <div class="copyright">
+        Copyright © 2024. All Rights Reserved
+    </div>
+
 </body>
 </html>
