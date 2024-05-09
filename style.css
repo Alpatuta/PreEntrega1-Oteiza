@@ -285,3 +285,19 @@ footer .column > a:hover{
     text-align: center;
 }
 
+.texto-disculpas{
+    padding-top: 6rem;
+    text-align: center;
+}
+
+#resultado{
+    background-color: #27272a;
+    padding: 1rem;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    color: #ccc;
+    align-items: center;
+    margin-top: 6rem;
+    margin-left: 1rem;
+}
