@@ -1,8 +1,7 @@
-// Función para calcular las cuotas
 function calcularCuotas(montoTotal, cuotasTotal, interes) {
-  const interesTotal = montoTotal * (interes / 100);
-  const valorTotal = montoTotal + interesTotal;
-  const precioPorCuota = valorTotal / cuotasTotal;
+  const interesTotal = Math.round(montoTotal * (interes / 100));
+  const valorTotal = Math.round(montoTotal + interesTotal);
+  const precioPorCuota = Math.round(valorTotal / cuotasTotal);
 
   return {
       valorTotal,
@@ -13,7 +12,7 @@ function calcularCuotas(montoTotal, cuotasTotal, interes) {
 
 // Función para calcular el préstamo
 function calcularPrestamo(montoTotal, cuotasTotal) {
-  const interes = 25; // Interés fijo del 25% para préstamos
+  const interes = 25; 
   return calcularCuotas(montoTotal, cuotasTotal, interes);
 }
 
@@ -38,32 +37,53 @@ const btnPrestamos = document.querySelector('.btn-prestamos');
 const btnCuotas = document.querySelector('.btn-cuotas');
 const resultadoDiv = document.getElementById('resultado');
 
-// Agregar evento al botón de préstamo
+
+function limpiarCamposPrestamo() {
+  prestamoMonto.value = '';
+  prestamoCuotas.value = '';
+}
+
+function limpiarCamposCuotas() {
+  cuotasMonto.value = '';
+  cuotasCuotas.value = '';
+  cuotasInteres.value = '';
+}
+
+
 btnPrestamos.addEventListener('click', function() {
   const montoTotal = parseInt(prestamoMonto.value);
   const cuotasTotal = parseInt(prestamoCuotas.value);
   const resultado = calcularPrestamo(montoTotal, cuotasTotal);
   guardarEnLocalStorage('prestamo', resultado);
-  mostrarResultado(resultado);
+  mostrarResultadoEnAlerta(resultado, limpiarCamposPrestamo);
 });
 
-// Agregar evento al botón de cuotas
+
 btnCuotas.addEventListener('click', function() {
   const montoTotal = parseInt(cuotasMonto.value);
   const cuotasTotal = parseInt(cuotasCuotas.value);
   const interes = parseInt(cuotasInteres.value);
   const resultado = calcularCuotas(montoTotal, cuotasTotal, interes);
   guardarEnLocalStorage('cuotas', resultado);
-  mostrarResultado(resultado);
+  mostrarResultadoEnAlerta(resultado, limpiarCamposCuotas);
 });
 
-// Función para mostrar resultados
-function mostrarResultado(resultado) {
-  resultadoDiv.innerHTML = '';
+// Función para mostrar resultados en una alerta
+function mostrarResultadoEnAlerta(resultado, callback) {
+  let mensaje = '';
 
   for (let key in resultado) {
-      const p = document.createElement('p');
-      p.textContent = key + ': ' + resultado[key];
-      resultadoDiv.appendChild(p);
+      mensaje += key + ': ' + resultado[key] + '\n';
   }
+
+  Swal.fire({
+    title: 'Resultado',
+    text: mensaje,
+    icon: 'info',
+    confirmButtonText: 'Ok'
+  }).then(() => {
+    callback();
+  });
 }
+
+
